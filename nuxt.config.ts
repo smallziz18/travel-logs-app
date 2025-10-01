@@ -2,10 +2,18 @@
 export default defineNuxtConfig({
   compatibilityDate: "2025-07-15",
   devtools: { enabled: true },
-  modules: ["@nuxt/eslint", "@nuxtjs/tailwindcss", "@nuxt/icon"],
+  modules: [
+    "@nuxt/eslint",
+    "@nuxtjs/tailwindcss",
+    "@nuxt/icon",
+    "@nuxtjs/color-mode",
+  ],
   eslint: {
     config: {
       standalone: false, // <---
     },
+  },
+  colorMode: {
+    dataValue: "theme",
   },
 });
