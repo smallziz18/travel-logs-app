@@ -7,6 +7,11 @@ on:
 
 jobs:
   build:
+    environment: build
+    env:
+      NODE_ENV: development
+      TURSO_DATABASE_URL: ${{ secrets.TURSO_DATABASE_URL }}
+      TURSO_AUTH_TOKEN: ${{ secrets.TURSO_AUTH_TOKEN }}
 
     runs-on: ubuntu-latest
 
