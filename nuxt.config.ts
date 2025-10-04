@@ -9,6 +9,7 @@ export default defineNuxtConfig({
     "@nuxtjs/tailwindcss",
     "@nuxt/icon",
     "@nuxtjs/color-mode",
+    "@pinia/nuxt",
   ],
   eslint: {
     config: {

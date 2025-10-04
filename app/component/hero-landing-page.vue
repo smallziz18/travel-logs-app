@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import AuthBtn from "~/component/auth-btn.vue";
 </script>
 
 <template>
@@ -12,10 +12,7 @@
         <p class="py-6">
           Keep track of your travel experiences with the world. Create and publish your travel logs easily.
         </p>
-        <button class="btn btn-primary">
-          Sign in with GitHub
-          <Icon name="tabler:brand-github-copilot" size="26" />
-        </button>
+        <AuthBtn />
       </div>
     </div>
   </div>
