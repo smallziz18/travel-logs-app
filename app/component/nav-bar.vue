@@ -1,20 +1,18 @@
 <script setup lang="ts">
+import AuthBtn from "~/component/auth-btn.vue";
 import ThemeToggler from "~/component/theme-toggler.vue";
 </script>
 
 <template>
   <div class="navbar bg-primary text-primary-content ">
     <div class="navbar-start">
-      <NuxtLink to="/public" class="btn btn-ghost text-xl">
+      <NuxtLink to="/" class="btn btn-ghost text-xl">
         Travel log
       </NuxtLink>
     </div>
     <div class="navbar-end">
       <ThemeToggler />
-      <a class="btn">
-        Sign in with GitHub
-        <Icon name="tabler:brand-github-copilot" size="26" />
-      </a>
+      <AuthBtn class="ml-2" />
     </div>
   </div>
 </template>
