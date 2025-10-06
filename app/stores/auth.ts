@@ -1,24 +1,41 @@
-import { createAuthClient } from "better-auth/vue";
+import { authClient } from "~~/lib/auth-client";
 import { defineStore } from "pinia";
 import { computed } from "vue";
 
 export const useAuthStore = defineStore("useAuthStore", () => {
-  const authClient = createAuthClient();
-  const session = authClient.useSession(); // ou adapte selon ce que tu trouves dans le log
-  const user = computed(() => session?.value?.data?.user);
-  const loading = computed(() => session?.value?.isPending);
+  const { data: sessionData, pending, refresh } = useAsyncData("auth-session", () =>
+    authClient.useSession(useFetch));
+
+  const user = computed(() => sessionData.value?.data.value?.user);
+  const loading = computed(() => pending.value);
+
   async function signIn() {
-    await authClient.signIn.social({
-      provider: "github",
-      callbackURL: "/Dashboard",
-      errorCallbackURL: "/error",
-    });
+    try {
+      await authClient.signIn.social({
+        provider: "github",
+        callbackURL: "/Dashboard",
+        errorCallbackURL: "/error",
+      });
+    }
+    catch (error) {
+      console.error("Erreur de connexion:", error);
+    }
   }
 
   async function signOut() {
-    await authClient.signOut();
-    navigateTo("/");
+    try {
+      await authClient.signOut();
+      // Rafraîchir manuellement l'état de la session
+      await refresh();
+      navigateTo("/");
+    }
+    catch (error) {
+      console.error("Erreur de déconnexion:", error);
+      // En cas d'échec, rediriger quand même
+      navigateTo("/");
+    }
   }
+
   return {
     loading,
     signIn,

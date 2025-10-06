@@ -16,7 +16,9 @@ const authStore = useAuthStore();
         </p>
         <AuthBtn v-if="!authStore.user" />
         <NuxtLink v-else to="/dashboard">
-          <button class="btn btn-primary">Go to Dashboard</button>
+          <button class="btn btn-primary">
+            Go to Dashboard
+          </button>
         </NuxtLink>
       </div>
     </div>
