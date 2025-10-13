@@ -5,7 +5,7 @@ import NavBar from "~/component/nav-bar.vue";
 <template>
   <div class="flex flex-col min-h-screen ">
     <NavBar />
-    <main>
+    <main class="flex flex-1 flex-col">
       <slot />
     </main>
   </div>
