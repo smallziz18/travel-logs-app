@@ -34,7 +34,7 @@ Une application web élégante pour documenter et partager vos aventures autour 
 1. Clonez le dépôt
 
    ```bash
-   git clone https://github.com/votre-username/travel-logs.git
+   git clone [https://github.com/votre-username/travel-logs.git](https://github.com/smallziz18/travel-logs-app.git)
    cd travel-logs
    ```
 
